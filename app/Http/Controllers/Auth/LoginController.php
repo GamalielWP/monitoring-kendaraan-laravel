@@ -41,7 +41,7 @@ class LoginController extends Controller
 
             case 'Admin':
                 session(['role' => $role]);
-                return '/home';
+                return '/admin-dashboard';
                 break;
 
             case 'Kepala Tambang':

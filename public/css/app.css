@@ -10932,3 +10932,20 @@ a.text-dark:focus {
   }
 }
 
+.color-success {
+  color: #38c172;
+}
+
+.color-danger {
+  color: #e3342f;
+}
+
+.color-primary {
+  color: #3490dc;
+}
+
+.accordion-button {
+  height: 40px !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}

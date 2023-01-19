@@ -22,12 +22,15 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/login.css') }}" rel="stylesheet">
+
+    {{-- Font Awesome --}}
+    <script src="https://kit.fontawesome.com/314203cc81.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="app">
         {{-- Menampilkan navbar jika session aktif --}}
         @if (session()->has('role'))
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     Sistem Monitoring
