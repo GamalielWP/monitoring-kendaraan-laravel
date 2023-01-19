@@ -142,7 +142,7 @@
                         <h5 class="modal-title" id="addModalLabel">Buat Pesanan</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form action="" method="post">
+                    <form action="/admin-dashboard/pesan" method="post">
                         @csrf
                         @method('POST')
                         <div class="modal-body">
@@ -150,10 +150,10 @@
                                 <div class="col">
                                     <label for="kendaraan" class="form-label">Kendaraan</label>
                                     <select id="kendaraan" name="kendaraan" class="form-select">
-                                        <option value="5">Pilih Kendaraan</option>
-                                        <option value="5">5</option>
-                                        <option value="10">10</option>
-                                        <option value="25">25</option>
+                                        <option value="null">Pilih Kendaraan</option>
+                                        @foreach ($allKendaraan as $kd)
+                                            <option value="{{$kd->id}}">{{$kd->kode_kendaraan}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col">
@@ -165,10 +165,10 @@
                                 <div class="col">
                                     <label for="driver" class="form-label">Driver</label>
                                     <select id="driver" name="driver" class="form-select">
-                                        <option value="5">Pilih Driver</option>
-                                        <option value="5">5</option>
-                                        <option value="10">10</option>
-                                        <option value="25">25</option>
+                                        <option value="null">Pilih Driver</option>
+                                        @foreach ($allDriver as $dr)
+                                            <option value="{{$dr->id}}">{{$dr->nama_driver}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="col">
@@ -185,10 +185,10 @@
                                 <div class="col">
                                     <label for="katambang" class="form-label">Kepala Tambang</label>
                                     <select id="katambang" name="katambang" class="form-select">
-                                        <option value="5">Pilih Kepala Tambang</option>
-                                        <option value="5">5</option>
-                                        <option value="10">10</option>
-                                        <option value="25">25</option>
+                                        <option value="null">Pilih Kepala Tambang</option>
+                                        @foreach ($allKatambang as $kt)
+                                            <option value="{{$kt->id}}">{{$kt->username}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
