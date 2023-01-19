@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleSeeder::class);
         $this->call(UserSeeder::class);
         factory(App\Driver::class, 10)->create();
+        factory(App\Kendaraan::class, 20)->create();
     }
 }
