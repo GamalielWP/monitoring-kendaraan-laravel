@@ -50,6 +50,15 @@ class AdminController extends Controller
             'status' => 'menunggu'
         ]);
 
+        $kapool = User::where('id_role', '1')->first();
+
+        StatusPesanan::create([
+            'id_pesanan' => $pesananTerbaru->id,
+            'id_user' => $kapool->id,
+            'level' => $kapool->role->nama_role,
+            'status' => 'menunggu'
+        ]);
+
         return back();
     }
 }

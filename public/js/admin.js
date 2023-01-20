@@ -12,12 +12,13 @@ $(document).ready(function () {
                 for (let i = 0; i < allPesanan.length; i++) {
 
                     for (let j = 0; j < allStatusPesanan.length; j++) {
-                        if (allStatusPesanan[j]['id_pesananan'] == allPesanan[i]['id'] &&
+                        
+                        if (allStatusPesanan[j]['id_pesanan'] == allPesanan[i]['id'] &&
                             allStatusPesanan[j]['level'] == 'Kepala Tambang') {
                             
                                 switch (allStatusPesanan[j]['status']) {
                                     case 'menunggu':
-                                        $(`#lv-1-card-${i}`).html(`
+                                        $(`#lv-1-card-${allStatusPesanan[j]['id_pesanan']}`).html(`
                                             <h6 class="fw-bold">Kepala Tambang</h6>
                                             <span class="fw-bold color-primary">
                                                 <i class="fas fa-pause-circle fa-3x"></i>
@@ -27,7 +28,7 @@ $(document).ready(function () {
                                         `);
                                         break;
                                     case 'disetujui':
-                                        $(`#lv-1-card-${i}`).html(`
+                                        $(`#lv-1-card-${allStatusPesanan[j]['id_pesanan']}`).html(`
                                             <h6 class="fw-bold">Kepala Tambang</h6>
                                             <span class="fw-bold color-success">
                                                 <i class="fas fa-check-double fa-3x"></i>
@@ -37,7 +38,7 @@ $(document).ready(function () {
                                         `);
                                         break;
                                     case 'ditolak':
-                                        $(`#lv-1-card-${i}`).html(`
+                                        $(`#lv-1-card-${allStatusPesanan[j]['id_pesanan']}`).html(`
                                             <h6 class="fw-bold">Kepala Tambang</h6>
                                             <span class="fw-bold color-danger">
                                                 <i class="fas fa-times-circle fa-3x"></i>
@@ -49,13 +50,13 @@ $(document).ready(function () {
                                 }
                         }
 
-                        if (allStatusPesanan[j]['id_pesananan'] == allPesanan[i]['id'] &&
+                        if (allStatusPesanan[j]['id_pesanan'] == allPesanan[i]['id'] &&
                             allStatusPesanan[j]['level'] == 'Kepala Pool') {
                             
                                 switch (allStatusPesanan[j]['status']) {
                                     case 'menunggu':
-                                        $(`#lv-2-card-${i}`).html(`
-                                            <h6 class="fw-bold">Kepala Tambang</h6>
+                                        $(`#lv-2-card-${allStatusPesanan[j]['id_pesanan']}`).html(`
+                                            <h6 class="fw-bold">Kepala Pool</h6>
                                             <span class="fw-bold color-primary">
                                                 <i class="fas fa-pause-circle fa-3x"></i>
                                                 <br>
@@ -64,8 +65,8 @@ $(document).ready(function () {
                                         `);
                                         break;
                                     case 'disetujui':
-                                        $(`#lv-2-card-${i}`).html(`
-                                            <h6 class="fw-bold">Kepala Tambang</h6>
+                                        $(`#lv-2-card-${allStatusPesanan[j]['id_pesanan']}`).html(`
+                                            <h6 class="fw-bold">Kepala Pool</h6>
                                             <span class="fw-bold color-success">
                                                 <i class="fas fa-check-double fa-3x"></i>
                                                 <br>
@@ -74,8 +75,8 @@ $(document).ready(function () {
                                         `);
                                         break;
                                     case 'ditolak':
-                                        $(`#lv-2-card-${i}`).html(`
-                                            <h6 class="fw-bold">Kepala Tambang</h6>
+                                        $(`#lv-2-card-${allStatusPesanan[j]['id_pesanan']}`).html(`
+                                            <h6 class="fw-bold">Kepala Pool</h6>
                                             <span class="fw-bold color-danger">
                                                 <i class="fas fa-times-circle fa-3x"></i>
                                                 <br>
