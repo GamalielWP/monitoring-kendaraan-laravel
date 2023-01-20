@@ -18,5 +18,12 @@ Auth::routes();
 Route::get('/', 'LandingController@index');
 
 Route::get('/get-status-pesanan', 'AdminController@getPesanan');
+
 Route::get('/admin-dashboard', 'AdminController@index');
 Route::post('/admin-dashboard/pesan', 'AdminController@buatPesanan');
+
+Route::get('/katambang-dashboard', 'KatambangController@index');
+Route::patch('/katambang-dashboard/update-{id}', 'KatambangController@updatePesanan');
+
+Route::get('/kapool-dashboard', 'KapoolController@index');
+Route::patch('/kapool-dashboard/update-{id}', 'KapoolController@updatePesanan');
