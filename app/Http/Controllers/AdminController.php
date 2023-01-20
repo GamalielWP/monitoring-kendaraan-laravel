@@ -11,6 +11,11 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     public function getPesanan()
     {
         $allPesanan = Pesanan::select('id', 'id_kendaraan', 'id_driver', 'lama_pemakaian', 'jumlah_bbm', 'tgl_pakai', 'tgl_selesai')->get();
