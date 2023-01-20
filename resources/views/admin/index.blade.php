@@ -29,77 +29,65 @@
 
         <div class="row justify-content-center mt-4">
             <div class="col-md-8">
-                <div class="card">
+                @foreach ($allPesanan as $index => $ps)
+                    
+                <div id="card-{{$ps->id}}" class="card mb-3">
 
                     <div class="card-body">
-                        <div class="card-title row">
-                            <div class="col">
-                                <h6 class="fs-5 fw-bold">Kode Kendaraan : H67JK</h6>
-                                <span><b>Driver :</b> Suyatno</span>
+                        <div class="card-title row justify-content-between">
+                            <div class="col-auto">
+                                <h6 class="fs-5 fw-bold">Kode Kendaraan : {{$ps->kendaraan->kode_kendaraan}}</h6>
+                                <span><b>Driver :</b> {{$ps->driver->nama_driver}}</span>
                             </div>
 
-                            <div class="col">
-                                <span class="float-right badge bg-dark fs-6">Angkutan Orang</span>
-                                <span>01/02/2023</span>
-                                <div class="accordion accordion-flush" id="accordionFlush">
+                            <div class="col-auto">
+                                <span>{{$ps->created_at}}</span>
+                            </div>
+
+                            <div class="col-auto">
+                                <span class="float-right badge bg-dark fs-6">Angkutan {{$ps->kendaraan->jenis_kendaraan}}</span>
+                                <div class="accordion accordion-flush" id="accordionFlush-{{$index}}">
                                     <div class="accordion-item">
-                                        <h2 class="accordion-header" id="flush-headingOne">
+                                        <h2 class="accordion-header" id="flush-headingOne-{{$index}}">
                                             <span class="accordion-button collapsed" data-bs-toggle="collapse"
-                                                data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                                aria-controls="flush-collapseOne"></span>
+                                                data-bs-target="#flush-collapse-{{$index}}" aria-expanded="false"></span>
                                         </h2>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                            data-bs-parent="#accordionFlush">
+                        <div id="flush-collapse-{{$index}}" class="accordion-collapse collapse" data-bs-parent="#accordionFlush-{{$index}}">
                             <hr class="mt-0">
                             <div class="row justify-content-center">
                                 <div class="col">
                                     <table>
                                         <tr>
                                             <td>Lama Pemakaian&ensp;</td>
-                                            <td>: 50 jam</td>
+                                            <td>: {{$ps->lama_pemakaian}} Jam</td>
                                         </tr>
                                         <tr>
                                             <td>Jumlah BBM&ensp;</td>
-                                            <td>: 200 L</td>
+                                            <td>: {{$ps->jumlah_bbm}} L</td>
                                         </tr>
                                         <tr>
                                             <td>Tgl Pakai&ensp;</td>
-                                            <td>: 01/02/2023</td>
+                                            <td>: {{$ps->tgl_pakai}}</td>
                                         </tr>
                                         <tr>
                                             <td>Tgl Selesai&ensp;</td>
-                                            <td>: 01/02/2023</td>
+                                            <td>: {{$ps->tgl_selesai}}</td>
                                         </tr>
                                     </table>
                                 </div>
 
                                 <div class="col text-center">
                                     <div class="row justify-content-center">
-                                        <div class="col">
-                                            <h6 class="fw-bold">Kepala Tambang</h6>
-                                            <span class="fw-bold color-success">
-                                                <i class="fas fa-check-double fa-3x"></i>
-                                                <br>
-                                                Disetujui
-                                            </span>
+                                        <div id="lv-1-card-{{$ps->id}}" class="col">
+                                            
                                         </div>
-                                        <div class="col">
-                                            <h6 class="fw-bold">Kepala Pool</h6>
-                                            {{-- <span class="fw-bold color-danger">
-                                                <i class="fas fa-times-circle fa-3x"></i>
-                                                <br>
-                                                Ditolak
-                                            </span> --}}
-                                            <span class="fw-bold color-primary">
-                                                <i class="fas fa-pause-circle fa-3x"></i>
-                                                <br>
-                                                Menunggu
-                                            </span>
+                                        <div id="lv-2-card-{{$ps->id}}" class="col">
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -108,9 +96,10 @@
 
                     </div>
                 </div>
+                @endforeach
             </div>
 
-            <div class="row justify-content-center mt-4">
+            <div class="row justify-content-center mt-2">
                 <div class="col-md-4 align-middle">
                     <span>Show 1 to 2 of 10 entries</span>
                 </div>

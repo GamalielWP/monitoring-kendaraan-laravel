@@ -17,5 +17,6 @@ Auth::routes();
 
 Route::get('/', 'LandingController@index');
 
+Route::get('/get-status-pesanan', 'AdminController@getPesanan');
 Route::get('/admin-dashboard', 'AdminController@index');
 Route::post('/admin-dashboard/pesan', 'AdminController@buatPesanan');

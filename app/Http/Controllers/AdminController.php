@@ -11,13 +11,22 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function getPesanan()
+    {
+        $allPesanan = Pesanan::select('id', 'id_kendaraan', 'id_driver', 'lama_pemakaian', 'jumlah_bbm', 'tgl_pakai', 'tgl_selesai')->get();
+        $allStatusPesanan = StatusPesanan::select('id', "id_pesanan", "id_user", "level", 'status')->get();
+        
+        return response()->json(['status' => 'OK', 'data' => ['pesanan' => $allPesanan,'statusPesanan' => $allStatusPesanan]]);
+    }
+
     public function index()
     {
         $allDriver = Driver::all();
         $allKendaraan = Kendaraan::all();
         $allKatambang = User::where('id_role', '3')->get();
+        $allPesanan = Pesanan::all();
 
-        return view('admin.index', compact('allDriver', 'allKendaraan', 'allKatambang'));
+        return view('admin.index', compact('allDriver', 'allKendaraan', 'allKatambang', 'allPesanan'));
     }
 
     public function buatPesanan(Request $request)

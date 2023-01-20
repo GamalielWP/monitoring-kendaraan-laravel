@@ -25,6 +25,9 @@
 
     {{-- Font Awesome --}}
     <script src="https://kit.fontawesome.com/314203cc81.js" crossorigin="anonymous"></script>
+
+    {{-- JQuery --}}
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="app">
@@ -89,5 +92,8 @@
 
     {{-- Bootstrap & Popper JS --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    {{-- Admin JS --}}
+    <script src="{{asset('js/admin.js')}}"></script>
 </body>
 </html>
