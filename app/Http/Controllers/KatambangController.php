@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Driver;
-use App\Kendaraan;
 use App\Pesanan;
 use App\StatusPesanan;
-use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -19,23 +16,24 @@ class KatambangController extends Controller
 
     public function index()
     {
-        $allDriver = Driver::all();
-        $allKendaraan = Kendaraan::all();
-        $allKatambang = User::where('id_role', '3')->get();
-        $allPesanan = Pesanan::all();
+        $katambangId = Auth::user()->id;
+        
+        $allPesanan = StatusPesanan::where('id_user', $katambangId)->get();
 
-        return view('katambang.index', compact('allDriver', 'allKendaraan', 'allKatambang', 'allPesanan'));
+        return view('katambang.index', compact('allPesanan', 'katambangId'));
     }
 
-    public function updatePesanan(Request $request, $id)
+    public function updatePesanan($id)
     {
-        $status = StatusPesanan::where('id_pesanan', $id)->where('id_user', Auth::user()->id);
+        $katambangId = Auth::user()->id;
+        
+        $statusPesanan = StatusPesanan::where('id_user', $katambangId)->where('id_pesanan', $id);
 
-        if ($status->exists()) {
-            $status->update([
-                'status' => $request->status
-            ]);
-        }
+        // if ($statusPesanan->get()) {
+        $statusPesanan->update([
+            'status' => 'disetujui'
+        ]);
+        // }
 
        return back();
     }
